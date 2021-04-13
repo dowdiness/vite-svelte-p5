@@ -8,9 +8,13 @@
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "next",
+    "p5": "^1.3.1",
     "svelte": "^3.35.0",
     "svelte-preprocess": "^4.6.9",
     "typescript": "^4.2.3",
     "vite": "^2.1.5"
+  },
+  "dependencies": {
+    "p5-svelte": "^2.2.2"
   }
 }
