@@ -5,12 +5,6 @@ export default function sketch(p5: p5) {
 
   p5.setup = () => p5.createCanvas(300, 300, p5.WEBGL);
 
-  // p5.myCustomRedrawAccordingToNewPropsHandler = (props) => {
-  //   if (props.rotation) {
-  //     rotation = ((props.rotation / 4 + 10) * Math.PI) / 180;
-  //   }
-  // };
-
   p5.draw = () => {
     p5.background(100);
     p5.normalMaterial();
