@@ -25,7 +25,7 @@ const rects: rect[] = [];
 const circles: circle[] = [];
 export const sketch = (p: p5): void => {
   p.setup = () => {
-    p.createCanvas(p.windowWidth - 30, p.windowHeight - p.windowHeight * 0.4);
+    p.createCanvas(400, 400);
     p.rectMode(p.CENTER);
     p.frameRate(24);
     p.shuffle(colors, true);
@@ -51,7 +51,7 @@ export const sketch = (p: p5): void => {
   };
 
   p.windowResized = () => {
-    p.resizeCanvas(p.windowWidth - 30, p.windowHeight - p.windowHeight * 0.4);
+    p.resizeCanvas(p.windowWidth * 0.8, p.windowHeight - p.windowHeight * 0.4);
 
     p.background(colors[0]);
     tiling();

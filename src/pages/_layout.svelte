@@ -50,7 +50,7 @@
     </div>
   </header>
   <main class="container flex-1">
-    <div class="flex flex-col items-center justify-between space-y-12 p-4 mx-auto">
+    <div class="flex flex-col items-center justify-between space-y-12 p-4 mx-auto overflow-hidden">
       <slot />
     </div>
   </main>
