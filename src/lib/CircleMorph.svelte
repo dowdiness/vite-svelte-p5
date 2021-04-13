@@ -61,7 +61,7 @@
       }
       if (theta == 620) {
         reverse = true
-      } else if (theta == 0) {
+      } else if (theta == 90) {
         reverse = false
       }
       let amt = (p.sin(theta) + 1) / 2
