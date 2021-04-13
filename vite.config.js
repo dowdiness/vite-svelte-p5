@@ -4,6 +4,7 @@ import WindiCSS from 'vite-plugin-windicss'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  optimizeDeps: { exclude: ["@roxi/routify"] },
   plugins: [
     svelte(),
     WindiCSS({

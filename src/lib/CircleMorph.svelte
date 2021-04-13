@@ -98,5 +98,5 @@
 	{theta}
 </div>
 
-<Slider class="my-6 mx-6 w-64" tooltip=hover bind:value={theta} min={90} max={620} step={1} />
+<Slider class="my-6 mx-6 w-64" tooltip=hover bind:value={theta} min={90} max={620} />
 <P5 {sketch} />
