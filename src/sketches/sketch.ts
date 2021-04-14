@@ -1,35 +1,51 @@
+// https://github.com/golanlevin/circle-morphing/blob/master/circle-to-square/circle12/sketch.js
 import type p5 from "p5"
 
-export const setup = (p5: p5, canvasParentRef: Element) => {
-  return p5.createCanvas(300, 300, p5.WEBGL).parent(canvasParentRef)
-}
+export default function sketch(p: p5) {
+  var nPoints = 90;
 
-export const draw = (p5: p5) => {
-  p5.background(100)
-  p5.normalMaterial()
-  p5.noStroke()
+  p.setup = () => {
+    p.createCanvas(400, 400);
+  }
 
-  p5.push()
-  p5.translate(-40, 50)
-  p5.rotateY(0)
-  p5.rotateX(-0.9)
-  p5.box(100)
-  p5.pop()
+  p.draw= () => {
+    p.background(255, 255, 255);
+    p.noFill();
+    p.push();
+    p.translate(p.width/2, p.height/2);
+    p.rotate(p.PI*0.25);
 
-  p5.noFill()
-  p5.stroke(255)
-  p5.push()
-  p5.translate(400, p5.height * 0.35, -200)
-  p5.sphere(300)
-  p5.pop()
-}
-
-export const windowResized = (p5: p5) => {
-  p5.resizeCanvas(p5.windowWidth, p5.windowHeight)
-}
-
-export default {
-  setup,
-  draw,
-  windowResized,
+    var radius = p.width / 2 * 0.75;
+    var frac = p.map(p.sin(p.millis() / 2000.0), -1,1, 1,2);
+    p.stroke(0);
+    p.strokeWeight(3);
+    p.strokeJoin(p.ROUND);
+    p.beginShape();
+    for (var i = 0; i <= nPoints; i++) {
+      var t = p.map(i, 0, nPoints, 0, p.HALF_PI);
+      var px = radius * p.pow(p.cos(t), frac);
+      var py = radius * p.pow(p.sin(t), frac);
+      p.vertex(px, py);
+    }
+    for (var i = 0; i <= nPoints; i++) {
+      var t = p.map(i, 0, nPoints, 0, p.HALF_PI);
+      var px = radius * p.pow(p.cos(t), frac);
+      var py = 0 - radius * p.pow(p.sin(t), frac);
+      p.vertex(py, px);
+    }
+    for (var i = 0; i <= nPoints; i++) {
+      var t = p.map(i, 0, nPoints, 0, p.HALF_PI);
+      var px = 0 - radius * p.pow(p.cos(t), frac);
+      var py = 0 - radius * p.pow(p.sin(t), frac);
+      p.vertex(px, py);
+    }
+    for (var i = 0; i <= nPoints; i++) {
+      var t = p.map(i, 0, nPoints, 0, p.HALF_PI);
+      var px = 0 - radius * p.pow(p.cos(t), frac);
+      var py = radius * p.pow(p.sin(t), frac);
+      p.vertex(py, px);
+    }
+    p.endShape(p.CLOSE);
+    p.pop();
+  }
 }
